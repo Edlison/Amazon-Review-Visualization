@@ -13,3 +13,12 @@ Number of Brands: 330
 
 Number of Categories: 149
 
+## Interesting finding
+
+- most also_buy----ok
+- most also_view----ok
+- their corresponding category----ok
+- highest item rating----ok
+- draw graph
+- deeplearning(itemname->openai embedding->predict classification)
+
