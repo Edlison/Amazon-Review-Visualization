@@ -13,13 +13,24 @@ def index():
     return render_template('index.html')
 
 
+@app.route('/graph')
+def g():
+    return render_template('graph.html')
+
+
+@app.route('/graph_small')
+def gs():
+    return render_template('graph_small.html')
+
+
 @app.route('/most', methods=['POST'])
 def proxy_most():
     data = request.get_data()
     data = json.loads(data)
     limits = int(data['limits'])
     type = data['type']
-    res = most(limits=limits, type=type)
+    reverse = True if int(data['reverse']) == 1 else False
+    res = most(limits=limits, type=type, reverse=reverse)
     return {'data': res}
 
 
@@ -28,7 +39,8 @@ def proxy_rating():
     data = request.get_data()
     data = json.loads(data)
     limits = int(data['limits'])
-    res = rating(limits=limits)
+    reverse = True if int(data['reverse']) == 1 else False
+    res = rating(limits=limits, reverse=reverse)
     return {'data': res}
 
 

@@ -17,58 +17,133 @@
 <div>
     <div class="container">
         <div class="page-header">
-            <h1>SI 507 Project <small>Amazon Visualization</small></h1>
+            <h1>Amazon Visualization <small>by Bolin Shen</small></h1>
         </div>
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h3 class="panel-title">Most Buy</h3>
+        <!-- Most Buy -->
+        <div class="row row-no-gutters">
+            <div class="panel panel-default col-md-4">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Most Buy</h3>
+                </div>
+                <div class="panel-body">
+                    <label for="limits_buy">Item limits</label>
+                    <input class="form-control" type="text" id="limits_buy" placeholder="10">
+                </div>
+                <div class="panel-body">
+                    <label for="buy_reverse">Filter</label>
+                    <select class="form-control" id="buy_reverse">
+                        <option value="0">Ascending</option>
+                        <option value="1">Descending</option>
+                    </select>
+                </div>
+                <div class="panel-body pull-right">
+                    <button class="btn btn-default" id="btn_buy">Get</button>
+                </div>
             </div>
-            <div class="panel-body">
-                <input type="text" id="limits_buy" placeholder="limits">
-            </div>
-            <div class="panel-body">
-                <button id="btn_buy">show</button>
-            </div>
-        </div>
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h3 class="panel-title">Most View</h3>
-            </div>
-            <div class="panel-body">
-                <input type="text" id="limits_view" placeholder="limits">
-            </div>
-            <div class="panel-body">
-                <button id="btn_view">show</button>
-            </div>
-        </div>
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h3 class="panel-title">Highest Rating</h3>
-            </div>
-            <div class="panel-body">
-                <input type="text" id="limits_rating" placeholder="limits">
-            </div>
-            <div class="panel-body">
-                <button id="btn_rating">show</button>
+
+            <div class="panel panel-default col-md-7 col-md-offset-1">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Information Display</h3>
+                </div>
+                <div class="panel-body">
+                    <div id="buy_info"></div>
+                </div>
             </div>
         </div>
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h3 class="panel-title">Item Inference by Graph Neural Network</h3>
+<!--Most View-->
+        <div class="row row-no-gutters">
+            <div class="panel panel-default col-md-4">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Most View</h3>
+                </div>
+                <div class="panel-body">
+                    <label for="limits_buy">Item limits</label>
+                    <input class="form-control" type="text" id="limits_view" placeholder="10">
+                </div>
+                <div class="panel-body">
+                    <label for="buy_reverse">Filter</label>
+                    <select class="form-control" id="view_reverse">
+                        <option value="0">Ascending</option>
+                        <option value="1">Descending</option>
+                    </select>
+                </div>
+                <div class="panel-body pull-right">
+                    <button class="btn btn-default" id="btn_view">Get</button>
+                </div>
             </div>
-            <div class="panel-body">
-                <input type="text" id="item_name" placeholder="item_name">
-            </div>
-            <div class="panel-body">
-                <button id="btn_infer">infer</button>
+
+            <div class="panel panel-default col-md-7 col-md-offset-1">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Information Display</h3>
+                </div>
+                <div class="panel-body">
+                    <div id="view_info"></div>
+                </div>
             </div>
         </div>
+<!--Highest Rating-->
+        <div class="row row-no-gutters">
+            <div class="panel panel-default col-md-4">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Highest Rating</h3>
+                </div>
+                <div class="panel-body">
+                    <label for="limits_buy">Item limits</label>
+                    <input class="form-control" type="text" id="limits_rating" placeholder="10">
+                </div>
+                <div class="panel-body">
+                    <label for="buy_reverse">Filter</label>
+                    <select class="form-control" id="rating_reverse">
+                        <option value="0">Ascending</option>
+                        <option value="1">Descending</option>
+                    </select>
+                </div>
+                <div class="panel-body pull-right">
+                    <button class="btn btn-default" id="btn_rating">Get</button>
+                </div>
+            </div>
+
+            <div class="panel panel-default col-md-7 col-md-offset-1">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Information Display</h3>
+                </div>
+                <div class="panel-body">
+                    <div id="rating_info"></div>
+                </div>
+            </div>
+        </div>
+<!--Inference-->
+        <div class="row row-no-gutters">
+            <div class="panel panel-default col-md-4">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Category Inference by Graph Neural Network</h3>
+                </div>
+                <div class="panel-body">
+                    <label for="limits_buy">Item Name</label>
+                    <input class="form-control" type="text" id="infer_name" placeholder="name">
+                </div>
+                <div class="panel-body pull-right">
+                    <button class="btn btn-default" id="btn_infer">Infer</button>
+                </div>
+            </div>
+
+            <div class="panel panel-default col-md-7 col-md-offset-1">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Information Display</h3>
+                </div>
+                <div class="panel-body">
+                    <div id="infer_info"></div>
+                </div>
+            </div>
+        </div>
+
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h3 class="panel-title">Information Display</h3>
+                <h3 class="panel-title">Graph Display</h3>
             </div>
             <div class="panel-body">
-                <div id="info_show"></div>
+                <button onclick="window.open('http://127.0.0.1:5000/graph_small')" type="button" class="btn btn-info btn-lg btn-block">Small Graph</button>
+                <button onclick="window.open('http://127.0.0.1:5000/graph')" type="button" class="btn btn-warning btn-lg btn-block">Full Graph</button>
             </div>
         </div>
     </div>
@@ -84,11 +159,12 @@
             dataType: 'json',
             data: JSON.stringify({
                 'limits': $("#limits_buy").val(),
+                'reverse': $("#buy_reverse").val(),
                 'type': "buy"
             }),
             success: function (data) {
                 text = generateText(data.data)
-                $("#info_show").html(text)
+                $("#buy_info").html(text)
             }
         })
     })
@@ -101,11 +177,12 @@
             dataType: 'json',
             data: JSON.stringify({
                 'limits': $("#limits_view").val(),
+                'reverse': $("#view_reverse").val(),
                 'type': "view"
             }),
             success: function (data) {
                 text = generateText(data.data)
-                $("#info_show").html(text)
+                $("#view_info").html(text)
             }
         })
     })
@@ -117,11 +194,12 @@
             contentType: 'application/json',
             dataType: 'json',
             data: JSON.stringify({
-                'limits': $("#limits_rating").val()
+                'limits': $("#limits_rating").val(),
+                'reverse': $("#rating_reverse").val(),
             }),
             success: function (data) {
                 text = generateText(data.data)
-                $("#info_show").html(text)
+                $("#rating_info").html(text)
             }
         })
     })
@@ -133,10 +211,10 @@
             contentType: 'application/json',
             dataType: 'json',
             data: JSON.stringify({
-                'item_name': $("#item_name").val()
+                'item_name': $("#infer_name").val()
             }),
             success: function (data) {
-                $("#info_show").text(data.data)
+                $("#infer_info").text(data.data)
             }
         })
     })

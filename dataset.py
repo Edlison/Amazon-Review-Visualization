@@ -2,8 +2,6 @@
 # @Date    : 4/16/23 12:49
 import torch
 import numpy as np
-import json
-import requests as r
 from torch_geometric.utils import degree
 
 

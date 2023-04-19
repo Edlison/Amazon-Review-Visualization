@@ -10,7 +10,7 @@ import requests as r
 from model import NetAmazon_GAT
 
 
-def draw():
+def _draw():
     dataset = dgl.data.CoraGraphDataset()
     g = Network(height=800, width=800, notebook=True)
     netxG = nx.Graph(dataset[0].to_networkx())
@@ -39,12 +39,14 @@ def rating(limits=10, reverse=True):
         each = "{} # Rating: {:.2f}".format(i, r)
         res.append(each)
 
-    return {'rate': res}
+    return res
 
 
 def get_emb(text):
     url = 'https://api.openai.com/v1/embeddings'
-    auth = 'Bearer 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'
+    with open('./key') as f:
+        key = f.readline().strip()
+    auth = 'Bearer ' + key
     data = {"model": "text-embedding-ada-002", "input": text}
     resp = r.post(url, headers={"Content-Type": "application/json", "Authorization": auth}, data=json.dumps(data))
     data = json.loads(resp.text)
@@ -80,5 +82,19 @@ def inference(text, from_openai=True):
     return pred_name
 
 
+def gen_graph():
+    ads = AmazonDataset()
+    ds = Amazon()
+    vizNet = Network(height=600, width=800, cdn_resources='remote', notebook=True)
+    g = nx.Graph()
+    for i, label in enumerate(ads.y):
+        g.add_node(int(i), group=int(label), label=ds.category_name[label])
+    row, col = ads.edge_index[:100]
+    for r, c in zip(row, col):
+        g.add_edge(int(r), int(c))
+    vizNet.from_nx(g)
+    vizNet.show('./templates/graph_small.html')
+
+
 if __name__ == '__main__':
-    draw()
+    gen_graph()
