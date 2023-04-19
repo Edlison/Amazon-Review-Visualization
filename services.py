@@ -89,7 +89,7 @@ def gen_graph():
     g = nx.Graph()
     for i, label in enumerate(ads.y):
         g.add_node(int(i), group=int(label), label=ds.category_name[label])
-    row, col = ads.edge_index[:100]
+    row, col = ads.edge_index[:, :100]
     for r, c in zip(row, col):
         g.add_edge(int(r), int(c))
     vizNet.from_nx(g)
