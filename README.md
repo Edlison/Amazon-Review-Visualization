@@ -48,10 +48,10 @@ For convenience we provide a pre-trained model stored [here](./data/Video_Games/
 Each item will be treated as a node, and we use interactions between each item to obtain adjacency matrix of the graph.
 
 ## Features
-1. Retrieve items that people buy most, you can set a limit and filter the result by ascending or descending.
+1. Retrieve items that people **also** buy most, you can set a limit and filter the result by ascending or descending.
 ![](statics/most_buy.png)
 
-2. Retrieve items that people view most, you can set a limit and filter the result by ascending or descending.
+2. Retrieve items that people **also** view most, you can set a limit and filter the result by ascending or descending.
 ![](statics/most_view.png)
 
 3. Retrieve items that have highest rating or lowest rating, you can set a limit and filter the result by ascending or descending.
