@@ -1,5 +1,5 @@
-
-__pycache__/*
-data/*
+./__pycache__/*
+data/Video_Games/processed
+data/Video_Games/raw
 lib/*
 key
