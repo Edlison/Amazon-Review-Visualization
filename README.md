@@ -32,6 +32,19 @@ Our app will be hosted on `http://localhost:5000`.
 - Number of Brands: 330
 - Number of Categories: 149
 
+Download raw data
+```bash
+wget https://jmcauley.ucsd.edu/data/amazon_v2/metaFiles2/meta_Video_Games.json.gz
+wget https://jmcauley.ucsd.edu/data/amazon_v2/categoryFiles/Video_Games.json.gz
+```
+
+Besides, we use OpenAI Embedding to train the Graph Neural Network to make a prediction. 
+You can generate your key https://platform.openai.com/account/api-keys.
+
+For convenience we provide a pre-trained model stored [here](./data/Video_Games/thre100/model.pt).
+
+## Data Structure
+
 Each item will be treated as a node, and we use interactions between each item to obtain adjacency matrix of the graph.
 
 ## Features
