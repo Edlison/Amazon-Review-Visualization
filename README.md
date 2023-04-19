@@ -32,6 +32,8 @@ Our app will be hosted on `http://localhost:5000`.
 - Number of Brands: 330
 - Number of Categories: 149
 
+Each item will be treated as a node, and we use interactions between each item to obtain adjacency matrix of the graph.
+
 ## Features
 1. Retrieve items that people buy most, you can set a limit and filter the result by ascending or descending.
 ![](statics/most_buy.png)
