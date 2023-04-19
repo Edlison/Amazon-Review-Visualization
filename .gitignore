@@ -1,4 +1,4 @@
-./__pycache__/*
+__pycache__/
 data/Video_Games/processed
 data/Video_Games/raw
 lib/*
